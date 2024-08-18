@@ -1,5 +1,5 @@
 import TestComponent from "../components/TestComponent"
-import test_image from "../assets/test_image.webp"
+import test_image from "../assets/maxresdefault.jpg"
 
 const TestPage = () => {
     return (
