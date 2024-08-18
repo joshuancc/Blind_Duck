@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 import Admin from "../../models/admin-model.js";
 
 export const registerAdmin = async(req, res) => {
@@ -39,7 +40,40 @@ export const registerAdmin = async(req, res) => {
 
     } catch (e) {
         console.error(e.message);
-        console.error(e.stack)
+        console.error(e.stack);
+        res.status(500).end();
+    }
+}
+
+export const loginAdmin = async(req, res) => {
+
+    try {
+        // Search for admin in database
+        const admin = await Admin.findOne({"email": req.body.email}).lean();
+        if (!admin) {
+            return res.status(404).json({"error": "Admin with email not found"});
+        }
+
+        // Verify admin password
+        const matchedPasswords = await bcrypt.compare(req.body.password, admin.password);
+        if (!matchedPasswords) {
+            return res.status(401).json({"error": "Incorrect password"});
+        }
+
+        // Grant access token
+        jwt.sign(
+            {"username": admin.username},
+            process.env.API_SECRET,
+            {"expiresIn": "3 days"},
+            (err, token) => {
+                if (err) throw err;
+                res.status(200).json({"accessToken": token});
+            }
+        );
+
+    } catch (e) {
+        console.error(e.message);
+        console.error(e.stack);
         res.status(500).end();
     }
 }

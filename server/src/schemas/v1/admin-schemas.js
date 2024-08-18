@@ -5,3 +5,8 @@ export const registerAdminSchema = object({
     username: string().required(),
     password: string().required()
 })
+
+export const loginAdminSchema = object({
+    email: string().required(),
+    password: string().required()
+})
