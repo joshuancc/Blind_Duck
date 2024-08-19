@@ -1,5 +1,6 @@
 import bcrypt from "bcryptjs";
 import Customer from "../../models/customer-model.js";
+import jwt from "jsonwebtoken";
 
 export const registerCustomer = async(req, res) => {
 
@@ -43,3 +44,42 @@ export const registerCustomer = async(req, res) => {
         res.status(500).end();
     }
 }
+
+export const loginCustomer = async(req, res) => {
+    try{
+        // Check if a customer email exists
+       
+       
+        const customerEmailExists = await Customer.exists({"email": req.body.email});
+        if (!customerEmailExists) {
+            return res.status(404).json({"error": "login failed (email not found)"});
+        }
+
+        const customer = await Customer.findOne({"email": req.body.email}).lean();
+        // Verify customer password
+        const matchedPasswords = await bcrypt.compare(req.body.password,customer.password );
+        if (!matchedPasswords) {
+            return res.status(401).json({"error": "Incorrect password"});
+        }
+
+        jwt.sign(
+            {"username": customer.username},
+            process.env.API_SECRET,
+            {"expiresIn": "3 days"},
+            (err, token) => {
+                if (err) throw err;
+                res.status(200).json({"accessToken": token});
+            }
+        );
+
+    } catch (e) {
+        console.error(e.message);
+        console.error(e.stack);
+        res.status(500).end();
+    }
+
+   
+    }
+
+
+
