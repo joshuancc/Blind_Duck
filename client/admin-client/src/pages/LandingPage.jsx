@@ -1,10 +1,11 @@
 import TestComponent from "../components/TestComponent"
 import test_image from "../assets/test_image.webp"
 import HeaderBox from "../components/HeaderBox"
-
 const LandingPage = () => {
-    const loggedIn ={firstName: 'Jeremy'};
+    const loggedIn ={firstName: 'Jeremy', lastName:'Ng'}
     return (
+        <main className="flex h-screen w-full font-inter"> 
+
         <section className="home">
             <div className="home-content">
                 <header className="home-header">
@@ -13,6 +14,7 @@ const LandingPage = () => {
             </div>
 
         </section>
+        </main>
     )
 }
 
