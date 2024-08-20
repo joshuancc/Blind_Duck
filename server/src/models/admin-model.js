@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 const adminSchema = mongoose.Schema({
     email: String,
-    username: String,
+    firstName: String,
+    lastName: String,
     password: String
 })
 
