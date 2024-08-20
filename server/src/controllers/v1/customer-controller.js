@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import Customer from "../../models/customer-model.js";
 import jwt from "jsonwebtoken";
+import { UserType } from "../../middleware/auth.js";
 
 export const registerCustomer = async (req, res) => {
   try {
@@ -73,7 +74,7 @@ export const loginCustomer = async (req, res) => {
     }
 
     jwt.sign(
-      { username: customer.username },
+      { "email": customer.email, "userType": UserType.Customer },
       process.env.API_SECRET,
       { expiresIn: "3 days" },
       (err, token) => {

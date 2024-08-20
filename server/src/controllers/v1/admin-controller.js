@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import Admin from "../../models/admin-model.js";
+import { UserType } from "../../middleware/auth.js";
 
 export const registerAdmin = async(req, res) => {
 
@@ -58,7 +59,7 @@ export const loginAdmin = async(req, res) => {
 
         // Grant access token
         jwt.sign(
-            {"username": admin.username},
+            {"email": admin.email, "userType": UserType.Admin},
             process.env.API_SECRET,
             {"expiresIn": "3 days"},
             (err, token) => {

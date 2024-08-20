@@ -2,31 +2,37 @@
 
 import jwt from "jsonwebtoken";
 
+// User enum type
+export const UserType = {
+  Admin: "admin",
+  Customer: "customer"
+};
+
 export const auth = (req, res, next) => {
-  const token = req.headers.authorization.slice(7);
+  // Check if authorization header is included
+  if (!req.headers.authorization) {
+    return res.status(401).json({"error": "Missing authorization header"});
+  }
 
-  gconsole.log(token);
-
-  if (!token) {
-    return res.status(401).json("Token invalid. Access denied Missing Token.");
+  // Check if authorization header is formatted as expected
+  const auth_components = req.headers.authorization.split(" ");
+  if (auth_components.length !== 2 || auth_components[0] !== "Bearer") {
+    return res.status(401).json({"error": "Malformed authorization header"});
   }
 
   try {
-    jwt.verify(token, process.env.API_SECRET, (error, decoded) => {
+    jwt.verify(auth_components[1], process.env.API_SECRET, (error, decoded) => {
+      // Check if the token is expired or invalid
       if (error) {
-        console.log(error);
-        return res
-          .status(401)
-          .json({ msg: "Token invalid. Access denied.Incorrect Token" });
+        return res.status(401).json({"error": "Invalid token"});
       }
-      if (
-        decoded.userType === "customer" &&
-        req.originalUrl.startsWith("/api/v1/customers")
-      ) {
-        return res.status(403).json({ msg: "Not admin" });
+
+      // Check if the user has sufficient privileges
+      const customerEndpoint = req.originalUrl.startsWith("/api/v1/customers");
+      if (decoded.userType === UserType.Customer && !customerEndpoint || decoded.userType === UserType.Admin && customerEndpoint) {
+        return res.status(403).end();
       } else {
-        req.userID = decoded.userID;
-        decoded.userType;
+        req.userEmail = decoded.email;
         next();
       }
     });
@@ -36,4 +42,5 @@ export const auth = (req, res, next) => {
     res.status(500).json({ msg: "Server Error" });
   }
 };
+
 export default auth;
