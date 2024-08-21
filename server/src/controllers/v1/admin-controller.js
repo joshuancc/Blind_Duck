@@ -74,3 +74,21 @@ export const loginAdmin = async(req, res) => {
         res.status(500).end();
     }
 }
+
+export const getAdminInfo = async(req, res) => {
+
+    try {
+        // Search for admin in database
+        const admin = await Admin.findOne({"email": req.userEmail}, "-_id email firstName lastName").lean();
+        if (!admin) {
+            return res.status(404).json({"error": "Admin not found"});
+        }
+
+        return res.status(200).json(admin);
+
+    } catch (e) {
+        console.error(e.message);
+        console.error(e.stack);
+        res.status(500).end();
+    }
+}
