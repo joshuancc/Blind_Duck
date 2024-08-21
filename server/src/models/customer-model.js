@@ -1,29 +1,19 @@
 import mongoose from "mongoose";
 
 const customerSchema = mongoose.Schema({
-    email: String,
-    username: String,
-    password: String
-})
-const MenuItemTable = mongoose.Schema ({
-    name: { type: String,
-        required : true,
-        unqique: true
-    },
-    price: {
-      type: Number,
-      required: true,
-      validate : {
-        validator : !Number.isInteger
-    },
-    min: 0},
+    email: {
+        type: String,
+        required: true,
+        unique: true},
+    username: {
+        type: String,
+        required: true,
+        unique: true},
 
-    storage:{
-      type: Number,
-      required: true,
-      validate : {
-        validator : Number.isInteger
-    }, min: 0}
+    password: {
+        type: String,
+        required: true,
+        }
 })
 
 
