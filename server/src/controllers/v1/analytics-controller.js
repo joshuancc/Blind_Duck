@@ -26,3 +26,29 @@ export const getSalesDistribution = async(req, res) => {
         res.status(500).end();
     }
 }
+
+export const getRevenueDistribution = async(req, res) => {
+
+    try {
+        // Check if date path parameter is formatted correctly
+        if (!moment(req.params.date, "YYYY-MM-DD", true).isValid()) {
+            return res.status(400).json({"error": "Malformed date path parameter"});
+        }
+
+        // Fetch requested revenue data
+        const dailyRevenue = await DailyRevenue.findOne({"date": new Date(req.params.date)}, "-_id itemsSold").lean();
+        const revenueDistribution = new Map();
+        if (dailyRevenue) {
+            for (const itemSold of dailyRevenue.itemsSold) {
+                revenueDistribution.set(itemSold.name, itemSold.totalRevenue);
+            }
+        }
+
+        return res.status(200).json(Object.fromEntries(revenueDistribution));
+
+    } catch(e) {
+        console.error(e.message);
+        console.error(e.stack);
+        res.status(500).end();
+    }
+}
