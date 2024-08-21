@@ -4,19 +4,18 @@ const customerSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true},
+        unique: true
+    },
     username: {
         type: String,
         required: true,
-        unique: true},
-
+        unique: true
+    },
     password: {
         type: String,
-        required: true,
-        }
+        required: true
+    }
 })
-
-
 
 const Customer = mongoose.model("Customer", customerSchema);
 
