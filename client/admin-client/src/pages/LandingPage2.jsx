@@ -4,11 +4,6 @@ const LandingPage2 = () => {
   return (
     <div>
 
-
-
-
-
-
         
       <DashboardLayout/>
     </div>

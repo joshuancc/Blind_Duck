@@ -1,3 +1,68 @@
+.home{
+  min-width: 2000px;
+  display: flex; /* Enables side-by-side layout */
+  /*align-items: center;  Vertically centers items */
+  justify-content: space-between; /* Adds space between chart and details */
+  padding: 20px; /* Adds padding */
+  background-color: #737373; /* Light background */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.home-landing{
+  min-width: 2000px;
+  display: flex; /* Enables side-by-side layout */
+  flex-direction: column;
+  /*align-items: center;  Vertically centers items */
+  justify-content: space-between; /* Adds space between chart and details */
+  padding: 20px; /* Adds padding */
+  background-color: #FDFDFF
+  ; /* Light background */
+  border-radius: 10px; /* Rounded corners */
+}
+.Solgan{
+  font-family: 'sans-serif';
+}
+
+.header-menu  {
+  padding-left: 100px;
+  gap: 200px; 
+}
+.header-menu a {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Set text color */
+  padding: 10px 15px; /* Add padding around the links */
+  font-weight: bold; /* Make the text bold */
+}
+
+.header-menu a:hover {
+  color: #DAA276; /* Change color on hover */
+}
+
+.home-content{
+  display: flex; /* Enables side-by-side layout */
+  flex-direction: column;
+
+}
+.home-content-items{
+  background-color: #FDFDFF; /* Light background */
+
+  display: flex;
+  flex-direction: row;
+
+}
+.nav,
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background-color: #1e1f26;
+  text-align: center;
+  padding: 0 2em;
+}
+
 /* Container for the entire section */
 .total-balance {
   display: flex; /* Enables side-by-side layout */
@@ -12,7 +77,7 @@
 /* Chart container */
 .total-balance-chart {
   flex: 1; /* Take up one part of the available space */
-  max-width: 300px; /* Restrict maximum width */
+  max-width: 200px; /* Restrict maximum width */
   margin-right: 20px; /* Adds spacing between chart and details */
 }
 
@@ -38,7 +103,7 @@
 .total-balance-amount {
   font-size: 32px;
   font-weight: bold;
-  color: #0747b6;
+  color: #DAA276;
 }
 
 /* Optional: Add responsive design */
@@ -60,13 +125,6 @@
 }
 
 /* side Bar*/
-.SideBar{
-  display: flex;
-width: 300px;
-background-color: #2f4050;
-height: 100%;
-}
-
 
 .flex-container {
   display: flex;
@@ -74,17 +132,7 @@ height: 100%;
   font-size: 30px;
   text-align: center;
 }
-.flex-item-left {
-  background-color: #f1f1f1;
-  padding: 10px;
-  flex: vertical ; 
-}
 
-.flex-item-right {
-  background-color: dodgerblue;
-  padding: 10px;
-  flex: 50%;
-}
 html, body {
   height: 100%;
   margin: 0;
@@ -93,4 +141,63 @@ html, body {
 main {
   display: flex;
   height: 100vh; /* Full viewport height */
+}
+.outer-headings {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+}
+
+h1 {
+  margin-right: 20px; /* Space between "Unlock" and rotating text */
+}
+
+.inner-headings {
+  display: inline-block;
+  overflow: hidden;
+  height: 50px; /* Adjust based on line height */
+  line-height: 50px;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.inner-headings span {
+  display: inline-block;
+  animation: slide 10s ease-in-out infinite;
+  color: #DAA276;
+}
+
+.line {
+  display: block;
+  white-space: nowrap; /* Ensures that each line doesn't wrap */
+}
+
+
+@keyframes slide {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-50px);
+  }
+  45% {
+    transform: translateY(-50px);
+  }
+  50% {
+    transform: translateY(-100px);
+  }
+  70% {
+    transform: translateY(-100px);
+  }
+  75% {
+    transform: translateY(-150px);
+  }
+  95% {
+    transform: translateY(-150px);
+  }
 }
