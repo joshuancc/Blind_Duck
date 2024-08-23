@@ -4,7 +4,7 @@ const MenuItemTable = mongoose.Schema ({
     name: {
         type: String,
         required : true,
-        unqique: true
+        unique: true
     },
     price: {
       type: Number,
