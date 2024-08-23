@@ -50,10 +50,10 @@ const Register = () => {
     })
     .catch(err => {
         console.log(err)
-        if (err.response === 409){
+        if (err.response.status === 409){
             {/* exsits msg*/} 
             setErrMsg("Error: customer with the given email or username already exists.")
-        } else if (err.response === 400 ) {
+        } else if (err.response.status === 400 ) {
             setErrMsg("Error: Bad Request.")
             console.log("asdlg;jas;ksjfl;as")
         }
