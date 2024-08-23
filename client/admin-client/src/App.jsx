@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import TestPage from "./pages/TestPage"
+import TestPage from "./pages/LandingPage"
 import LandingPage from "./pages/LandingPage"
 import LandingPage2 from "./components/DashboardLayout"
 import DashboardLayout from "./components/DashboardLayout"
 import FoodApp from "./pages/FoodAppPage"
+import AdminPage from "./pages/AdminPage"
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         
-        <Route path="/TestPage" element={<TestPage/>}/>
+        <Route path="/AdminPage" element={<AdminPage/>}/>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/FoodApp" element={<FoodApp/>}/>
         <Route path="/Dashboardlayout" element={<DashboardLayout/>}/>

@@ -42,7 +42,7 @@ const BarChartComponent = () => {
   };
 
   return (
-    <div>
+    <div className='line-chart'>
       <Bar data={data} options={options} />
     </div>
   );
