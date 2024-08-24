@@ -4,6 +4,7 @@ import DashboardLayout from "../components/DashboardLayout"
 import BarChartComponent from "../components/BarChart"
 import RevenueDistributionChart from "../components/RevenueDistributionChart"
 import SalesDistributionChart from "../components/SalesDistributionChart"
+import SalesTrendChart from "../components/SalesTrendChart"
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
@@ -122,11 +123,9 @@ const AdminPage = () => {
                     <div className="home-content-items">
                         <RevenueDistributionChart distribution={revenueDistribution}/>
                         <SalesDistributionChart distribution={salesDistribution}/>
-                        <LineChart/>
                     </div>
                     <div className="home-content-items"> 
-                        <BarChartComponent/>
-                        <BarChartComponent/>
+                        <SalesTrendChart distribution={numberOfSales}/>
                     </div>
                 </div>
             </section>
