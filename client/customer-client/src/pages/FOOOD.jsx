@@ -7,7 +7,6 @@ import noodles from "../assets/noodles.png"
 import axios from 'axios'
 import React from "react"
 import { useState } from 'react';
-import SideBar from "../components/SideBar";
 
 
 

@@ -113,13 +113,18 @@ export const addItem = async (req, res) => {
     }
 
     console.log(typeof(customerBucket));
-    const itemsMap = customerBucket.items;
+    let  itemsMap = customerBucket.items;
+    if (!itemsMap || !(itemsMap instanceof Map)) {
+      itemsMap = new Map();
+    }
 
-    if (itemsMap.has(req.body.item)) {
+
+    if (itemsMap && itemsMap.has(req.body.item)) {
       itemsMap.set(req.body.item, itemsMap.get(req.body.item) + 1);
       console.log("Updated", req.body.item, ":", itemsMap.get(req.body.item));
     } else {
       // If the item doesn't exist, add it with a quantity of 1
+      
       itemsMap.set(req.body.item, 1);
       console.log("Added", req.body.item, ":", itemsMap.get(req.body.item));
     }
@@ -206,77 +211,123 @@ export const removeItem = async (req, res) => {
     }
   };
 
-
   export const checkout = async (req, res) => {
     console.log("Checkout process started");
-  
+
     try {
-      const customerBucket = await CheckoutBucket.findOne({ email: req.userEmail });
-      
-      if (!customerBucket) {
-        return res.status(404).json({ error: "Customer Bucket not found" });
-      }
-  
-      const menuItems = await Menu.find();
-      const menuMap = new Map(menuItems.map(item => [item.name, item]));
-  
-      const returnBody = new Map();
-  
-      // Use for...of to allow await inside the loop
-      for (const [itemName, quantity] of customerBucket.items.entries()) {
-        const menuItem = menuMap.get(itemName);
-        if (menuItem) {
-          returnBody.set(menuItem.name, menuItem.price);
-  
-          // Check if a revenue record for today's date already exists
-          const existingRevenueEntry = await DailyRevenue.findOne({
-            date: new Date().toISOString().slice(0, 10), // Assuming date is stored as YYYY-MM-DD
-            "itemsSold.name": menuItem.name
-          });
-  
-          if (!existingRevenueEntry) {
-            // If the revenue record doesn't exist for the item today, create a new one
-            await DailyRevenue.updateOne(
-              { date: new Date().toISOString().slice(0, 10) },
-              {
-                $push: {
-                  itemsSold: {
-                    name: menuItem.name,
-                    numUnitsSold: quantity,
-                    totalRevenue: menuItem.price * quantity
-                  }
-                }
-              },
-              { upsert: true } // If the document with today's date doesn't exist, create it
-            );
-          } else {
-            // If the revenue record exists for the item today, update it
-            await DailyRevenue.updateOne(
-              {
-                date: new Date().toISOString().slice(0, 10),
-                "itemsSold.name": menuItem.name
-              },
-              {
-                $inc: {
-                  "itemsSold.$.numUnitsSold": quantity,
-                  "itemsSold.$.totalRevenue": menuItem.price * quantity
-                }
-              }
-            );
-          }
-        } 
-      }
-  
-      const returnBodyArray = Array.from(returnBody.entries());
+        const customerBucket = await CheckoutBucket.findOne({ email: req.userEmail });
+        if (!customerBucket) {
+            return res.status(404).json({ error: "Customer Bucket not found" });
+        }
+
+        //variable for today
+        const today = new Date().toISOString().slice(0, 10);
+
+       //All items From Menu, 
+        const menuItems = await Menu.find();
+        const menuMap = new Map(menuItems.map(item => [item.name, item]));
+        console.log("menuMap  :    ", menuMap );
+        console.log("mencustomerBucket.items.entries()   :    ", customerBucket.items.entries() );
+         
+
+        for (const [itemName, quantity] of customerBucket.items.entries()) {
+            const menuItem = menuMap.get(itemName);
+
+            if (menuItem) {
+                // Find the existing revenue entry for today's date
+                const existingEntry = await DailyRevenue.findOne({
+                    date: today,
+                    "itemsSold.name": menuItem.name,
+                });
+
+                if (existingEntry) {
+                    // If the item exists in today's record, update the existing entry
+                    console.log("expolosion !");
+                    await DailyRevenue.updateOne(
+                        {
+                            date: today,
+                            "itemsSold.name": menuItem.name,
+                        },
+                        {
+                            $inc: {
+                                "itemsSold.$.numUnitsSold": quantity,
+                                "itemsSold.$.totalRevenue": menuItem.price * quantity,
+                            },
+                        }
+                    );
+                    console.log("expolosion ????");
+                } else {
+                    // If the item does not exist, push a new item into the itemsSold array
+                    console.log("expolosion ?$ : :#:rwQ#:RwR:W:RWrsadfvajwfjawkfgjaw");
+
+                    await DailyRevenue.updateOne(
+                        { date: today },
+                        {
+                            $push: {
+                                itemsSold: {
+                                    name: menuItem.name,
+                                    numUnitsSold: quantity,
+                                    totalRevenue: menuItem.price * quantity,
+                                },
+                            },
+                        },
+                        { upsert: true } // Create document if it doesn't exist
+                    );
 
 
-      customerBucket.items.clear();
-      await customerBucket.save();   
-      return res.status(200).json({ items: customerBucket.items, returnBody: returnBodyArray });
-  
-    } catch (e) {
-      console.error(e.message);
-      console.error(e.stack);
-      res.status(500).end();
+                    console.log(" no eexpolosion ?$ : :#:rwQ#:RwR:W:RWrsadfvajwfjawkfgjaw233333");
+                }
+            }
+        }
+
+        await CheckoutBucket.updateOne(
+          { email: req.userEmail },
+          { $set: { items: new Map() } } 
+      );
+
+
+        res.status(200).json({ message: "Checkout successful" });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ error: "Internal Server Error" });
     }
-  };
+};
+
+
+  
+ export const checkoutBucket = async (req, res) => {
+  try {
+    
+    const customerBucket = await CheckoutBucket.findOne({ email: req.userEmail });
+    console.log("getAllMenuItems start");
+    console.log(customerBucket);
+    console.log("getAllMenuItems fin");
+    const menuItems = await Menu.find();
+    const menuMap = new Map(menuItems.map(item => [item.name, item]));
+    const returnBody = new Map();
+
+
+
+
+    for (const [itemName, quantity] of customerBucket.items.entries()) {
+      console.log(itemName);
+      
+      const menuItem = menuMap.get(itemName);
+      if (menuItem) {
+          returnBody.set(menuItem.name, menuItem.price);
+      
+      }
+      console.log("menuItem ::::::::::::::::::", menuItem);
+  }
+
+  const returnBodyObject = Object.fromEntries(returnBody);
+  
+    console.log( 'returnBody ..........', returnBody);
+    return res.status(200).json({"customerBucket": customerBucket , "price": returnBodyObject});
+
+  } catch (e) {
+    console.error(e.message);
+    console.error(e.stack);
+    res.status(500).end();
+  }
+};
