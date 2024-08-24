@@ -3,7 +3,6 @@ import LandingPage from "./pages/LandingPage"
 import RegisterPage from "./pages/RegisterPage"
 import LoginPage from "./pages/LoginPage"
 import DashboardLayout from "./components/DashboardLayout"
-import FoodApp from "./pages/FoodAppPage"
 import AdminPage from "./pages/AdminPage"
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
         <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/admin-page" element={<AdminPage/>}/>
-        <Route path="/food-app" element={<FoodApp/>}/>
         <Route path="/dashboard-layout" element={<DashboardLayout/>}/>
       </Routes>
     </BrowserRouter>
