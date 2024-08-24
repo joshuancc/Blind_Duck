@@ -7,6 +7,7 @@ import SalesDistributionChart from "../components/SalesDistributionChart"
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
+import LineChart from "../components/LineChart"
 
 const AdminPage = () => {
     const loggedIn = {firstName: 'Jeremy'};
@@ -121,6 +122,7 @@ const AdminPage = () => {
                     <div className="home-content-items">
                         <RevenueDistributionChart distribution={revenueDistribution}/>
                         <SalesDistributionChart distribution={salesDistribution}/>
+                        <LineChart/>
                     </div>
                     <div className="home-content-items"> 
                         <BarChartComponent/>
