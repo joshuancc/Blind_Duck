@@ -2,6 +2,8 @@ import HeaderBox from "../components/HeaderBox"
 import TotalBalanceBox from "../components/TotalBalanceBox"
 import DashboardLayout from "../components/DashboardLayout"
 import BarChartComponent from "../components/BarChart"
+import RevenueDistributionChart from "../components/RevenueDistributionChart"
+import SalesDistributionChart from "../components/SalesDistributionChart"
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
@@ -45,7 +47,6 @@ const AdminPage = () => {
     }
 
     async function getSalesDistribution() {
-        const currentDate = new Date().toISOString().split("T")[0];
         axios.get(`http://localhost:3000/api/v1/analytics/sales-distribution/${currentDateString}`, {
             headers: {
                 Authorization: `Bearer ${location.state.token}`
@@ -118,10 +119,8 @@ const AdminPage = () => {
                 <div className="home-content">
                     <HeaderBox type="greeting" title="Welcome" user={loggedIn?.firstName || 'Guest'} subtext="Access and manage your account."/>   
                     <div className="home-content-items">
-                        <header className="home-header">
-                            <TotalBalanceBox accounts={[]} totalBanks={1} totalBalance={1250.68}/>
-                        </header>
-                        <BarChartComponent/>
+                        <RevenueDistributionChart distribution={revenueDistribution}/>
+                        <SalesDistributionChart distribution={salesDistribution}/>
                     </div>
                     <div className="home-content-items"> 
                         <BarChartComponent/>
