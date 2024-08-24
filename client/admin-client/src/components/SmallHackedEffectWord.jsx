@@ -58,7 +58,7 @@ const SmallHackedEffectWord = () => {
                 cursor: 'pointer',
                 color: '#DAA276'
             }}
-            data-value="HOME    "
+            data-value="Data Lab Alexander"
         >             <span style={{ color: 'black', fontSize:"bold",fontFamily: 'Montserrat, monospace',
         }}>Data Lab&nbsp;</span>
 

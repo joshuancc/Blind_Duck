@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "../styles/RegisterPage.css"
-
+import SmallHackedEffectWord from "../components/SmallHackedEffectWord"
 const RegisterPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
@@ -31,7 +31,13 @@ const RegisterPage = () => {
   }
 
   return (
-    <>
+    <div className="main">
+                  <div className="header-menu">
+            <SmallHackedEffectWord /> 
+            <a href="/register">Sign Up</a>
+                <a href="/login">Sign in</a>
+                
+                </div>
       <div className="centered-form">
         <h1>Register</h1>
         <form onSubmit={handleRegister}>
@@ -51,10 +57,10 @@ const RegisterPage = () => {
             <label htmlFor="password">Password</label>
             <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} required></input>
           </div>
-        <button>Sign up</button>
+        <button class="admin-custom-btn btn-16">Sign up</button>
         </form>
       </div>
-    </>
+    </div>
   )
 }
 
