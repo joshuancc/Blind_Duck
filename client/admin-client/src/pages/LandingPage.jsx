@@ -7,7 +7,7 @@ const LandingPage = () => {
     return (
         <section className="home-landing"> 
             <section className="home-content">
-                <nav class="header-menu">
+                <nav className="header-menu">
                     <a href="/register">Sign Up</a>
                     <a href="/login">Sign in</a>
                 </nav>
