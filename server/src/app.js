@@ -10,6 +10,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json())
+app.use("/food-images", express.static("public"));
 app.use("/api/v1", apiV1Router);
 
 // Connect to database
