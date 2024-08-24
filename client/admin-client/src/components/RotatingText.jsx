@@ -9,11 +9,11 @@ const RotatingText = () => {
 
       <div className='inner-headings'>
             <span>
-            insights with a Click of a Button <br/>
-            the Power of Data <br/>
-            Precision, Maximize Results. <br/>
-            visiual data<br/>
+            Hidden Patterns in Your Data<br/>
+            Data-Driven Success  <br/>
+            Efficiency with Data Precision<br/>
             Smarter Decisions<br/>
+            Opportunities with Data Clarity<br/>
 
             </span>
       </div>

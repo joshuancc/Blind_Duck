@@ -9,7 +9,7 @@
 }
 
 .home-landing{
-  min-width: 2000px;
+  min-width: 200px;
   display: flex; /* Enables side-by-side layout */
   flex-direction: column;
   /*align-items: center;  Vertically centers items */
@@ -19,19 +19,19 @@
   ; /* Light background */
   border-radius: 10px; /* Rounded corners */
 }
-.Solgan{
-  font-family: 'sans-serif';
-}
 
 .header-menu  {
   padding-left: 100px;
   gap: 200px; 
+  border: #1e1f26;
+  border-bottom: solid;
 }
 .header-menu a {
   text-decoration: none; /* Remove underline from links */
   color: #333; /* Set text color */
   padding: 10px 15px; /* Add padding around the links */
   font-weight: bold; /* Make the text bold */
+  font-family: Montserrat;
 }
 
 .header-menu a:hover {
@@ -44,12 +44,31 @@
 
 }
 .home-content-items{
-  background-color: #FDFDFF; /* Light background */
-
+  background-color: #FDFDFF; /* Light background  #FDFDFF*/ 
+  font-family: Montserrat;
   display: flex;
   flex-direction: row;
-
+  justify-content: space-between; /* Evenly spaces out the cards */
+  padding: 20px; /* Optional: Adds padding around the section */
 }
+
+.end {
+  align-self: flex-end; /* Pushes the .end section to the bottom of the parent container */
+  margin-top: auto;
+}
+.Landing-Card{
+  justify-content: center;
+  font-family: Montserrat ;
+  background-color: #DAA276;
+  color:#FDFDFF;
+  border-radius: 10px;
+  min-height: 400px;
+  min-width: 300px ;
+  flex: 1; /* Allows the cards to grow and shrink evenly */
+  margin: 0 10px; /* Adds space between the cards */
+}
+
+
 .nav,
 .slider {
   display: flex;
@@ -155,14 +174,15 @@ main {
 }
 
 h1 {
+  font-family: Montserrat;
   margin-right: 20px; /* Space between "Unlock" and rotating text */
 }
 
 .inner-headings {
   display: inline-block;
   overflow: hidden;
-  height: 50px; /* Adjust based on line height */
-  line-height: 50px;
+  height: 80px; /* Increased height */
+  line-height: 80px; /* Increased line height */
   white-space: nowrap; /* Prevents text from wrapping */
 }
 
@@ -170,6 +190,7 @@ h1 {
   display: inline-block;
   animation: slide 10s ease-in-out infinite;
   color: #DAA276;
+  font-family: Montserrat;
 }
 
 .line {
@@ -186,21 +207,21 @@ h1 {
     transform: translateY(0);
   }
   25% {
-    transform: translateY(-50px);
+    transform: translateY(-80px); /* Matches the height of a single line */
   }
   45% {
-    transform: translateY(-50px);
+    transform: translateY(-80px);
   }
   50% {
-    transform: translateY(-100px);
+    transform: translateY(-160px);
   }
   70% {
-    transform: translateY(-100px);
+    transform: translateY(-160px);
   }
   75% {
-    transform: translateY(-150px);
+    transform: translateY(-240px);
   }
   95% {
-    transform: translateY(-150px);
+    transform: translateY(-240px);
   }
 }

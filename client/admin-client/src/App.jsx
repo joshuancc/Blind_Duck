@@ -8,6 +8,7 @@ import AdminPage from "./pages/AdminPage"
 function App() {
 
   return (
+    <main className="flex-container">
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
@@ -17,6 +18,7 @@ function App() {
         <Route path="/dashboard-layout" element={<DashboardLayout/>}/>
       </Routes>
     </BrowserRouter>
+    </main>
   )
 }
 

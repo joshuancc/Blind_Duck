@@ -1,5 +1,5 @@
 import React from 'react'
-
+import HackedEffectWord from './HackedEffectWord'
 const HeaderBox = ({type= 'title', title, subtext, user}  ) => {
   return (
     <div className="header-box">
@@ -7,7 +7,7 @@ const HeaderBox = ({type= 'title', title, subtext, user}  ) => {
         {title}
         {type === 'greeting' && (
             <span style={{ color: '#DAA276' }}>
-                &nbsp;{user}
+                &nbsp; <HackedEffectWord/>
             </span>
 
         )}
