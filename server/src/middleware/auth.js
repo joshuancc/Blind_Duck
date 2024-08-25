@@ -24,6 +24,7 @@ export const auth = (req, res, next) => {
     jwt.verify(auth_components[1], process.env.API_SECRET, (error, decoded) => {
       // Check if the token is expired or invalid
       if (error) {
+       
         return res.status(401).json({"error": "Invalid token"});
       }
 
