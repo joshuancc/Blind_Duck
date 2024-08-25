@@ -1,5 +1,4 @@
 import "../styles/styles.css"
-import setPopupName from "../components/SideBar";
 import React from "react"
 import { useState } from 'react';
 import { useEffect } from 'react';
