@@ -74,7 +74,7 @@ export const getNumberOfSales = async(req, res) => {
         // Initialize number of sales for each day as 0
         const currDate = startDate;
         const totalSalesDistribution = new Map();
-        while (currDate <= endDate) {
+        while (currDate < endDate) {
             totalSalesDistribution.set(currDate.toISOString().split('T')[0], 0);
             currDate.setDate(currDate.getDate() + 1);
         }
@@ -90,6 +90,23 @@ export const getNumberOfSales = async(req, res) => {
         }
 
         return res.status(200).json(Object.fromEntries(totalSalesDistribution));
+
+    } catch(e) {
+        console.error(e.message);
+        console.error(e.stack);
+        res.status(500).end();
+    }
+}
+export const addRevenue = async(req, res) => {
+    try {
+        const revenue = new DailyRevenue({
+            date: new Date(req.body.date),
+            itemsSold: req.body.itemsSold
+        });
+
+        await revenue.save();
+
+        return res.status(201).end();
 
     } catch(e) {
         console.error(e.message);

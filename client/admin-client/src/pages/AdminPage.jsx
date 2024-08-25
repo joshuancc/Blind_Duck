@@ -22,7 +22,7 @@ const AdminPage = () => {
 
     const currentDate = new Date();
     const lastWeekDate = new Date();
-    lastWeekDate.setDate(currentDate.getDate() - 7);
+    lastWeekDate.setDate(currentDate.getDate() - 6);
     const currentDateString = currentDate.toISOString().split("T")[0];
     const lastWeekDateString = lastWeekDate.toISOString().split("T")[0];
     async function getAdminDetails() {
