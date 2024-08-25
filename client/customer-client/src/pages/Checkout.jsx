@@ -120,7 +120,7 @@ useEffect(() => {
                 <div className="header-menu2">
 
              
-            <a href="/food">Home</a>
+            <a href="/login">Home</a>
               
                 
                 </div>
@@ -128,7 +128,7 @@ useEffect(() => {
             <h1 className='ChckoutTitle'>Checkout </h1>
             
             <div>
-                {//checkItem()
+                {checkItem()
                 }
 
 
@@ -148,11 +148,6 @@ useEffect(() => {
                 />
             </div>
           
-            <button onClick={checkItem}>My items $</button> 
-            <button onClick={addItem}>ADDD $</button>
-            <button onClick={addItem2}>ADDD 2$</button>
-            <button onClick={addItem3}>ADDD 3$</button>
-
            
             <button className='custom-btn1  btn-1' onClick={checkingOut}>Checkout &nbsp;  ${checkoutprice} </button>
         </div>
