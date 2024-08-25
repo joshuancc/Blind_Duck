@@ -73,6 +73,19 @@
   padding: 20px; /* Adds some padding around the text */
 
 }
+
+.Chart-Card{justify-content: center;
+  font-family: Montserrat ;
+  background-color: #f3f3f3;
+  color:#FDFDFF;
+  border-radius: 10px;
+  min-height: 400px;
+  min-width: 300px ;
+  flex: 1; /* Allows the cards to grow and shrink evenly */
+  margin: 0 10px; /* Adds space between the cards */
+  position: relative; /* Needed for positioning the image */
+  padding: 20px;}
+
 .card-image {
   position: absolute;
   bottom: 10px;
@@ -162,8 +175,10 @@
   }
 }
  .line-chart{
+  background-color: #f3f3f3;
   display: flex;
-  min-width: 453px;
+  padding-left: 30px;
+  min-width: 853px;
  }
 /* side Bar*/
 

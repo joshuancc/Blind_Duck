@@ -11,11 +11,11 @@ import { useLocation } from "react-router-dom"
 import LineChart from "../components/LineChart"
 
 const AdminPage = () => {
-    const loggedIn = {firstName: 'Jeremy'};
     const location = useLocation();
     const [email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+
     const [salesDistribution, setSalesDistribution] = useState({});
     const [revenueDistribution, setRevenueDistribution] = useState({});
     const [numberOfSales, setNumberOfSales] = useState({});
@@ -25,7 +25,6 @@ const AdminPage = () => {
     lastWeekDate.setDate(currentDate.getDate() - 7);
     const currentDateString = currentDate.toISOString().split("T")[0];
     const lastWeekDateString = lastWeekDate.toISOString().split("T")[0];
- 
     async function getAdminDetails() {
         axios.get("http://localhost:3000/api/v1/admins/personal-information", {
             headers: {
@@ -76,6 +75,7 @@ const AdminPage = () => {
         })
         .then(response => {
             if (response.status === 200) {
+                console.log(response.data);
                 setRevenueDistribution(response.data);
             }
         })
@@ -119,7 +119,6 @@ const AdminPage = () => {
         <DashboardLayout>
             <section className="home">
                 <div className="home-content">
-                    <HeaderBox type="greeting" title="Welcome" user={loggedIn?.firstName || 'Guest'} subtext="Access and manage your account."/>   
                     <div className="home-content-items">
                         <RevenueDistributionChart distribution={revenueDistribution}/>
                         <SalesDistributionChart distribution={salesDistribution}/>
@@ -128,6 +127,7 @@ const AdminPage = () => {
                         <SalesTrendChart distribution={numberOfSales}/>
                     </div>
                 </div>
+
             </section>
         </DashboardLayout>
     )

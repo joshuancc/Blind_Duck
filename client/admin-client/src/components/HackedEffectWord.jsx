@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
-const HackedEffectWord = () => {
+const HackedEffectWord = ({firstName, lastName}) => {
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const intervalRef = useRef(null);
     const h1Ref = useRef(null);
+    const fullName = `${firstName} ${lastName}`;
 
     useEffect(() => {
         const handleMouseOver = (event) => {
@@ -49,9 +50,9 @@ const HackedEffectWord = () => {
             <h1
                 ref={h1Ref}
                 style={{ fontSize: '5rem', fontFamily: 'Space Mono, monospace' }}
-                data-value="ALEXANDER"
+                data-value={fullName}
             >
-                Alexander
+                {fullName}
             </h1>
         </div>
     );

@@ -9,8 +9,7 @@ import orangeSlime from "../assets/orange-slime.png";
 import blackFisf from "../assets/black_fish.png";
 import HackedEffectWord from "../components/HackedEffectWord";
 import SmallHackedEffectWord from '../components/SmallHackedEffectWord';
-
-import { Button } from "antd";
+import CompanyDescription from "../components/CompanyDescription";
 const LandingPage = () => {
     const loggedIn = {firstName: 'Jeremy'};
     return (
@@ -26,17 +25,19 @@ const LandingPage = () => {
                     <section className='home-content'>
 
                         <RotatingText/> 
-
-                        <LandingCard text="Easy to use and " subtext="Ask our suer "/>                     </section>
+                          </section>
                     
                     <Spline scene="https://prod.spline.design/b9qq0GUsLimXYwY8/scene.splinecode"  />
       
                 </section>
+
+                <CompanyDescription/>
+
        </section>
        <section  className="home-content-items">                
         <LandingCard text="Great insight" subtext="provided us with precise and reliable data analysis. Their attention to detail and commitment to delivering results on time is truly impressive." imageSrc={blueShell} />
-        <LandingCard text="We are The lab tech" subtext="Award winning team" imageSrc={orangeSlime} />
-        <LandingCard text="We are The lab tech" subtext="Award winning team" imageSrc={blackFisf} />
+        <LandingCard text="Quick and simple" subtext="Alexander has been a game changer for how we manage and analyze our data. Would highly recommend to anyone looking for a quick and easy to use data analytics solution." imageSrc={orangeSlime} />
+        <LandingCard text="Unmatched!" subtext="Our company has been using Data Lab Alexander for a year now and we haven't looked back since. It is hands down one of the best data analytics solution on the market today." imageSrc={blackFisf} />
 
       </section>
 

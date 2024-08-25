@@ -31,7 +31,7 @@ const SalesTrendChart = ({ distribution }) => {
     };
 
     return (
-        <div>
+        <div className="Chart-Card">
             <Line data={data} options={options} />
         </div>
     )
