@@ -1,4 +1,3 @@
-
 import back from "../assets/back.png"
 import emptyHeart from "../assets/emptyHeart.png"
 import Slide from '@mui/material/Slide';
@@ -14,11 +13,6 @@ const FOOOD = () => {
 
 
     const [popupVisible, setPopupVisible] = React.useState(false);
-
-    const headers = {
-        'accessToken': 'eyJhbGciOiJIUzhB8yep4yFMYl0yEk-uVYdq6D6jhb63QmQE',
-        'Content-Type': 'application/json',
-    }
 
     const location = useLocation();
 
@@ -107,7 +101,6 @@ const FOOOD = () => {
     }
 
     const handleChangePopup = (name) => {
-        
         setPopupVisible((prev) => !prev);
        
         
