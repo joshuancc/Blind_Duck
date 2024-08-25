@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom"
 const Login = () => {
 
     {/* Variable For Register Error Display */} 
-    const [errMsg, setErrMsg] = useState("agag")
+    const [errMsg, setErrMsg] = useState("")
 
     const headers = {
         'Content-Type': 'application/json',
@@ -80,9 +80,9 @@ const Login = () => {
                             <input type="submit" value="Log In"></input>
                         </form>
                         <hr></hr>
-                        Don't have an account??? <a href="https://www.w3schools.com/">Sign in</a>
+                        Don't have an account? <a href="http://localhost:5173/">Sign up</a>
                     </div>
-                    <p>{errMsg}</p>
+                    <p style = {{color:"black", fontSize:"20px"}}>{errMsg}</p>
                 </div> 
             </div>
             

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FoodCard from '../components/FoodCard';
+import {useLocation} from 'react-router-dom';
 
 const Checkout = () => {
     const [items, setItems] = useState({});
     const [prices, setPrices] = useState({}); // State for storing item prices
     const [checkoutprice, settotalPrices] = useState(0);
+    const location = useLocation();
 
     useEffect(() => {
         checkItem();
@@ -27,7 +29,7 @@ useEffect(() => {
         console.log("Button clicked, sending POST request...");
         axios.post('http://localhost:3000/api/v1/customers/checkout', {}, {
             headers: {
-                authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRkMzJ3ZUFhQTIzc3N3ZXJRV1F3ZXIzd2VyNDIyMzQyd2RAYmFuYW5hLmNvbSIsInVzZXJUeXBlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MjQ0NTM0NjAsImV4cCI6MTcyNDcxMjY2MH0.tOtB4VjGD8Pz8tHQratAjh22CgG7AjtqrvnjP16F0Kk'
+                authorization: `Bearer ${location.state.token}`
             }
         })
         .then(function (response) {
@@ -43,7 +45,7 @@ useEffect(() => {
             item: "apple"
         }, {
             headers: {
-                authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRkMzJ3ZUFhQTIzc3N3ZXJRV1F3ZXIzd2VyNDIyMzQyd2RAYmFuYW5hLmNvbSIsInVzZXJUeXBlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MjQ0NTM0NjAsImV4cCI6MTcyNDcxMjY2MH0.tOtB4VjGD8Pz8tHQratAjh22CgG7AjtqrvnjP16F0Kk'
+                authorization: `Bearer ${location.state.token}`
             }
         })
         .then(function (response) {
@@ -60,7 +62,7 @@ useEffect(() => {
             item: "bubble tea"
         }, {
             headers: {
-                authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRkMzJ3ZUFhQTIzc3N3ZXJRV1F3ZXIzd2VyNDIyMzQyd2RAYmFuYW5hLmNvbSIsInVzZXJUeXBlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MjQ0NTM0NjAsImV4cCI6MTcyNDcxMjY2MH0.tOtB4VjGD8Pz8tHQratAjh22CgG7AjtqrvnjP16F0Kk'
+                authorization: `Bearer ${location.state.token}`
             }
         })
         .then(function (response) {
@@ -78,7 +80,7 @@ useEffect(() => {
             item: "orange"
         }, {
             headers: {
-                authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRkMzJ3ZUFhQTIzc3N3ZXJRV1F3ZXIzd2VyNDIyMzQyd2RAYmFuYW5hLmNvbSIsInVzZXJUeXBlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MjQ0NTM0NjAsImV4cCI6MTcyNDcxMjY2MH0.tOtB4VjGD8Pz8tHQratAjh22CgG7AjtqrvnjP16F0Kk'
+                authorization: `Bearer ${location.state.token}`
             }
         })
         .then(function (response) {
@@ -93,7 +95,7 @@ useEffect(() => {
     function checkItem() {
         axios.get('http://localhost:3000/api/v1/customers/checkoutBucket', {
             headers: {
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRkMzJ3ZUFhQTIzc3N3ZXJRV1F3ZXIzd2VyNDIyMzQyd2RAYmFuYW5hLmNvbSIsInVzZXJUeXBlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MjQ0NTM0NjAsImV4cCI6MTcyNDcxMjY2MH0.tOtB4VjGD8Pz8tHQratAjh22CgG7AjtqrvnjP16F0Kk'
+                Authorization: `Bearer ${location.state.token}`
             }
         })
         .then(function (response) {

@@ -11,6 +11,10 @@ const MenuItemTable = mongoose.Schema ({
       required: true,
       min: 0
     },
+    description: {
+      type: String,
+      default: ""
+    },
     storage:{
       type: Number,
       required: true,

@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 const Register = () => {
 
     {/* Variable For Register Error Display */} 
-    const [errMsg, setErrMsg] = useState("agag")
+    const [errMsg, setErrMsg] = useState("")
 
     const headers = {
         'Content-Type': 'application/json',
@@ -82,9 +82,8 @@ const Register = () => {
                         </form>
                         <hr></hr>
                         Already have an account? <a href="http://localhost:5173/login">Sign in</a>
-                        Want food?!?11 <a href="http://localhost:5173/food"> FOOOOOOOOOOOOD</a>
                     </div>
-                    <p>{errMsg}</p>
+                    <p style = {{color:"black", fontSize:"20px"}}>{errMsg}</p>
                 </div> 
             </div>
             
