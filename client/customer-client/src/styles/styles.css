@@ -1,3 +1,589 @@
 p {
     color: gray;
 }
+
+h1{
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+  }
+
+div.buttons{
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+
+}
+
+  .foodContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1080px;
+    background-color: rgb(249, 249, 249);
+  }
+  
+  .column {
+    flex: 1;
+    color: rgb(0, 0, 0);
+    align-content: center;
+  }
+
+  .row {
+    flex: 1;
+    color: white;
+    align-content: center;
+  }
+
+  .foodColumn {
+    flex: 1;
+    color: blue;
+    width: 100%;
+    margin-left: 50px;
+    flex-direction: row;
+    display: flex;
+    position:absolute;
+    top:250px;
+    left:-30px;
+  }
+
+.serv ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .serv li {
+    outline: 1px solid;
+  }
+
+div.form
+{
+    position: 500px;
+    width: 700px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    border-spacing: 1cm;
+}
+
+p.foodImage{
+  
+  color:rgb(88, 87, 87);
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  margin-left:20px;
+  margin-right:20px;
+  position: relative; /* Declared position allows for location changes */
+  top: -70px; /* Moves the image 2px closer to the top of the page */
+
+}
+
+h2.foodPrice{
+  
+  color:rgb(0, 0, 0);
+  font-family:Arial, Helvetica, sans-serif;
+  margin-left:20px;
+  font-size: 35px;
+  position: relative; /* Declared position allows for location changes */
+  top: -65px; /* Moves the image 2px closer to the top of the page */
+
+}
+
+div.foodButton
+{
+   margin-left: 20px;
+    width: 270px;
+    height: 340px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: white;
+    text-align: left;
+
+    box-shadow: 0px 0px 20px 3px #e2e2e2;
+}
+
+button.checkoutButton
+{
+   margin-left: 20px;
+    width: 180px;
+    height: 60px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size:35px;
+    text-align: center;
+    background-color: rgb(87, 87, 87);
+    text-align: left;
+    position:absolute;
+    top: 40px;
+    right: 40px;
+
+  
+}
+
+div.total
+{
+   margin-left: 20px;
+    width: 180px;
+    height: 60px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size:35px;
+    text-align: center;
+    background-color: rgb(87, 87, 87);
+    text-align: left;
+    position:absolute;
+    top: 120px;
+    right: 40px;
+
+}
+
+div.foodPopup
+{
+   margin-left: 480px;
+    margin-top:50px;
+    width: 570px;
+    height: 850px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: rgb(70, 68, 68);
+    text-align: left;
+    position: absolute; /* Declared position allows for location changes */
+    top: 0px; /* Moves the image 2px closer to the top of the page */
+    box-shadow: 0px 0px 20px 3px #828282;
+
+}
+
+div.counter
+{
+   margin-left: 0px;
+    display:flex;
+    flex-direction:row;
+    margin-top:50px;
+    width: 150px;
+    height: 50px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: rgb(178, 178, 178);
+    text-align: left;
+    position: relative; /* Declared position allows for location changes */
+    top: -200px; /* Moves the image 2px closer to the top of the page */
+    left: 200px;
+}
+
+div.checkout
+{
+   margin-left: 100px;
+    margin-top:50px;
+    width: 230px;
+    height: 50px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: rgb(74, 74, 74);
+    text-align: left;
+    position: relative; /* Declared position allows for location changes */
+    top: -200px; /* Moves the image 2px closer to the top of the page */
+    left: 50px;
+}
+
+
+div.foodPopupInside
+{
+
+    margin-top:50px;
+    width: 570px;
+    height: 600px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: white;
+    text-align: left;
+    position: absolute; /* Declared position allows for location changes */
+    top: 200px; /* Moves the image 2px closer to the top of the page */
+
+}
+
+button.foodButton{
+  margin-left: 20px;
+    width: 270px;
+    height: 340px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: white;
+    text-align: left;
+
+    box-shadow: 0px 0px 20px 3px #e2e2e2;
+}
+
+div.foodButtonImage
+{
+  height: 100px;
+  margin-bottom:90px;
+  padding-bottom: 100px;
+}
+
+div.formInside{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 30px;
+    text-align: left;
+    color: black;
+    
+}
+
+
+
+img.title {
+    height: 55%;
+    width: 55%;
+    margin-left:200px;
+    margin-bottom:20px;
+  }
+
+  img.rice {
+    height: 60%;
+    width: 70%;
+    position: relative; /* Declared position allows for location changes */
+    top: -70px; /* Moves the image 2px closer to the top of the page */
+    margin-left: 45px;
+  }
+
+  img.popupImage {
+    height: 50%;
+    width: 50%;
+    position: relative; /* Declared position allows for location changes */
+    top: -170px; /* Moves the image 2px closer to the top of the page */
+    left:150px;
+  }
+
+  img.salad {
+    height: 100%;
+    width: 70%;
+    margin-left:79px;
+    margin-bottom: 150px;
+  }
+
+div.formContainer{
+   
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    display:flex;
+    font-family:verdana;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+.SideBar{
+    background-color: rgb(94, 28, 170);
+    width:300px;
+    display: flex;
+    height: 100%;
+
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #bbb146;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #9a923b;
+  }
+
+body {
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+ 
+  a:hover {
+    opacity:0.5;
+  }
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  
+  
+  
+  .container {
+    margin-top: 50px; 
+    Display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .phone {
+    background-color: #36383F;
+    border-radius: 40px;
+    width: 300px;
+    height: 600px;
+    Display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 30px 50px 100px #85888C;
+  }
+  .content {
+    border: 1px solid #36383F;
+    border-radius: 20px;
+    width: 94%;
+    height: 91%;
+    background-color: #F5F6FA;
+    overflow: hidden;
+  }
+  nav {
+    background-color: #1E1E23;
+    height: 65px;
+  }
+  
+  
+  #menuToggle {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 25px;
+    left: 25px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  #menuToggle input
+  {
+    display: flex;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+  }
+  
+  #menuToggle span
+  {
+    display: flex;
+    width: 29px;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #ffffff;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 5px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  
+  #menuToggle span:first-child
+  {
+    transform-origin: 0% 0%;
+  }
+  
+  #menuToggle span:nth-last-child(2)
+  {
+    transform-origin: 0% 100%;
+  }
+  
+  #menuToggle input:checked ~ span
+  {
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -1px);
+    background: #36383F;
+  }
+  #menuToggle input:checked ~ span:nth-last-child(3)
+  {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  
+  #menuToggle input:checked ~ span:nth-last-child(2)
+  {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+  
+  #menu
+  {
+    position: absolute;
+    width: 180px;
+    height: 400px;
+    box-shadow: 0 0 10px #85888C;
+    margin: -50px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background-color: #F5F6FA;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+  
+  #menu li
+  {
+    padding: 10px 0;
+    transition-delay: 2s;
+  }
+  
+  #menuToggle input:checked ~ ul
+  {
+    transform: none;
+  }
+
+  .FoodCard h1{
+
+    margin-left: 20px; /* Adds space between the cards */
+  }
+
+
+  .checkoutItem{  
+  
+      font-family: Montserrat;
+    font-size: larger;
+    color:#000000;
+    margin: 0  60px; /* Adds space between the cards */
+    margin-top: 10px;
+  }
+
+
+
+
+  .FoodCard{
+    justify-content: center;
+    font-family: Montserrat ;
+    background-color: #cfcac6;
+    color:#0a0a0a;
+    border-radius: 10px;
+    min-height: 400px;
+    min-width: 300px ;
+    max-width: 700px;
+    flex: 1; /* Allows the cards to grow and shrink evenly */
+    margin: 100px 600px; /* Adds space between the cards */
+  }
+
+
+
+  .custom-btn1 {
+    width: 160px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+
+    margin: 0  1100px; 
+  }
+  
+  /* 1 */
+  .btn-1 {
+    background: #DAA276;
+    border: none;
+  }
+
+  .btn-1:hover {
+    background: rgb(114, 114, 116);
+
+ }
+
+
+
+ .header-menu2 {
+  padding-left: 100px;
+  gap: 200px; 
+  border-bottom: solid 1px #1e1f26; /* Adds a bottom border */
+  display: flex;
+  align-items: center; /* Vertically center the items */
+  background-color: #AE917B; /* Change color on hover */
+
+}
+
+
+
+.header-menu2 a, .header-menu2 h1 {
+  padding: 10px 15px; /* Ensure consistent padding */
+  text-decoration: none; /* Remove underline from links */
+  font-weight: bold; 
+  font-family: Montserrat;
+  color: #333; /* Set text color */
+  font-size: larger;
+  
+}
+
+.header-menu2 a:hover {
+  color: #DAA276; /* Change color on hover */
+}
+
+
+.ChckoutTitle{
+  margin: 100px 600px;
+  margin-bottom: -80px;
+}

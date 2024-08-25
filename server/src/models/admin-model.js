@@ -1,9 +1,23 @@
 import mongoose from "mongoose";
 
 const adminSchema = mongoose.Schema({
-    email: String,
-    username: String,
-    password: String
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
+        type: String,
+        required: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    }
 })
 
 const Admin = mongoose.model("Admin", adminSchema);
