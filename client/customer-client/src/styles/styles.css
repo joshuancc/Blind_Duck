@@ -13,11 +13,20 @@ h1{
     height: 600px;
   }
 
+div.buttons{
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+
+}
+
   .foodContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 600px;
+    height: 1080px;
     background-color: rgb(249, 249, 249);
   }
   
@@ -40,6 +49,9 @@ h1{
     margin-left: 50px;
     flex-direction: row;
     display: flex;
+    position:absolute;
+    top:250px;
+    left:-30px;
   }
 
 .serv ul {
@@ -64,11 +76,26 @@ div.form
 }
 
 p.foodImage{
-  margin:auto;
-  color:white;
-  font-family:Urbanist;
-  font-size: 60px;
-  font-weight: bolder;
+  
+  color:rgb(88, 87, 87);
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  margin-left:20px;
+  margin-right:20px;
+  position: relative; /* Declared position allows for location changes */
+  top: -70px; /* Moves the image 2px closer to the top of the page */
+
+}
+
+h2.foodPrice{
+  
+  color:rgb(0, 0, 0);
+  font-family:Arial, Helvetica, sans-serif;
+  margin-left:20px;
+  font-size: 35px;
+  position: relative; /* Declared position allows for location changes */
+  top: -65px; /* Moves the image 2px closer to the top of the page */
 
 }
 
@@ -81,8 +108,130 @@ div.foodButton
     border-radius: 20px;
     font-size:35px;
     text-align: center;
-    background: rgb(18,18,181);
-    background: linear-gradient(90deg, rgba(18,18,181,1) 0%, rgba(9,9,121,1) 58%, rgba(9,9,121,1) 85%);
+    background-color: white;
+    text-align: left;
+
+    box-shadow: 0px 0px 20px 3px #e2e2e2;
+}
+
+button.checkoutButton
+{
+   margin-left: 20px;
+    width: 180px;
+    height: 60px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size:35px;
+    text-align: center;
+    background-color: rgb(87, 87, 87);
+    text-align: left;
+    position:absolute;
+    top: 40px;
+    right: 40px;
+
+  
+}
+
+div.total
+{
+   margin-left: 20px;
+    width: 180px;
+    height: 60px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size:35px;
+    text-align: center;
+    background-color: rgb(87, 87, 87);
+    text-align: left;
+    position:absolute;
+    top: 120px;
+    right: 40px;
+
+}
+
+div.foodPopup
+{
+   margin-left: 480px;
+    margin-top:50px;
+    width: 570px;
+    height: 850px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: rgb(70, 68, 68);
+    text-align: left;
+    position: absolute; /* Declared position allows for location changes */
+    top: 0px; /* Moves the image 2px closer to the top of the page */
+    box-shadow: 0px 0px 20px 3px #828282;
+
+}
+
+div.counter
+{
+   margin-left: 0px;
+    display:flex;
+    flex-direction:row;
+    margin-top:50px;
+    width: 150px;
+    height: 50px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: rgb(178, 178, 178);
+    text-align: left;
+    position: relative; /* Declared position allows for location changes */
+    top: -200px; /* Moves the image 2px closer to the top of the page */
+    left: 200px;
+}
+
+div.checkout
+{
+   margin-left: 100px;
+    margin-top:50px;
+    width: 230px;
+    height: 50px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: rgb(74, 74, 74);
+    text-align: left;
+    position: relative; /* Declared position allows for location changes */
+    top: -200px; /* Moves the image 2px closer to the top of the page */
+    left: 50px;
+}
+
+
+div.foodPopupInside
+{
+
+    margin-top:50px;
+    width: 570px;
+    height: 600px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: white;
+    text-align: left;
+    position: absolute; /* Declared position allows for location changes */
+    top: 200px; /* Moves the image 2px closer to the top of the page */
+
+}
+
+button.foodButton{
+  margin-left: 20px;
+    width: 270px;
+    height: 340px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size:35px;
+    text-align: center;
+    background-color: white;
+    text-align: left;
+
     box-shadow: 0px 0px 20px 3px #e2e2e2;
 }
 
@@ -112,17 +261,26 @@ img.title {
   }
 
   img.rice {
-    height: 70%;
+    height: 60%;
     width: 70%;
-    margin-left:79px;
-    margin-top:30px
+    position: relative; /* Declared position allows for location changes */
+    top: -70px; /* Moves the image 2px closer to the top of the page */
+    margin-left: 45px;
+  }
+
+  img.popupImage {
+    height: 50%;
+    width: 50%;
+    position: relative; /* Declared position allows for location changes */
+    top: -170px; /* Moves the image 2px closer to the top of the page */
+    left:150px;
   }
 
   img.salad {
     height: 100%;
     width: 70%;
     margin-left:79px;
-    margin-bottom: 90px;
+    margin-bottom: 150px;
   }
 
 div.formContainer{
@@ -330,3 +488,102 @@ body {
   {
     transform: none;
   }
+
+  .FoodCard h1{
+
+    margin-left: 20px; /* Adds space between the cards */
+  }
+
+
+  .checkoutItem{  
+  
+      font-family: Montserrat;
+    font-size: larger;
+    color:#000000;
+    margin: 0  60px; /* Adds space between the cards */
+    margin-top: 10px;
+  }
+
+
+
+
+  .FoodCard{
+    justify-content: center;
+    font-family: Montserrat ;
+    background-color: #cfcac6;
+    color:#0a0a0a;
+    border-radius: 10px;
+    min-height: 400px;
+    min-width: 300px ;
+    max-width: 700px;
+    flex: 1; /* Allows the cards to grow and shrink evenly */
+    margin: 100px 600px; /* Adds space between the cards */
+  }
+
+
+
+  .custom-btn1 {
+    width: 160px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+
+    margin: 0  1100px; 
+  }
+  
+  /* 1 */
+  .btn-1 {
+    background: #DAA276;
+    border: none;
+  }
+
+  .btn-1:hover {
+    background: rgb(114, 114, 116);
+
+ }
+
+
+
+ .header-menu2 {
+  padding-left: 100px;
+  gap: 200px; 
+  border-bottom: solid 1px #1e1f26; /* Adds a bottom border */
+  display: flex;
+  align-items: center; /* Vertically center the items */
+  background-color: #AE917B; /* Change color on hover */
+
+}
+
+
+
+.header-menu2 a, .header-menu2 h1 {
+  padding: 10px 15px; /* Ensure consistent padding */
+  text-decoration: none; /* Remove underline from links */
+  font-weight: bold; 
+  font-family: Montserrat;
+  color: #333; /* Set text color */
+  font-size: larger;
+  
+}
+
+.header-menu2 a:hover {
+  color: #DAA276; /* Change color on hover */
+}
+
+
+.ChckoutTitle{
+  margin: 100px 600px;
+  margin-bottom: -80px;
+}

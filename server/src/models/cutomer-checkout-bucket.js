@@ -9,7 +9,8 @@ const checkoutBucket = mongoose.Schema({
     },
     items: {
         type: Map,
-        of: {type: Number, min: 0}
+        of: {type: Number, min: 0},
+        default: {}
     }
 })
 
