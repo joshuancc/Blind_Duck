@@ -488,3 +488,90 @@ body {
   {
     transform: none;
   }
+
+  .FoodCard h1{
+
+    margin-left: 20px; /* Adds space between the cards */
+  }
+
+
+  .checkoutItem{  
+  
+      font-family: Montserrat;
+    font-size: larger;
+    color:#000000;
+    margin: 0  60px; /* Adds space between the cards */
+    margin-top: 10px;
+  }
+
+
+
+
+
+
+
+  .custom-btn1 {
+    width: 160px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+
+    margin: 0  1100px; 
+  }
+  
+  /* 1 */
+  .btn-1 {
+    background: #DAA276;
+    border: none;
+  }
+
+  .btn-1:hover {
+    background: rgb(114, 114, 116);
+
+ }
+
+
+
+ .header-menu2 {
+  padding-left: 100px;
+  gap: 200px; 
+  border-bottom: solid 1px #1e1f26; /* Adds a bottom border */
+  display: flex;
+  align-items: center; /* Vertically center the items */
+  background-color: #AE917B; /* Change color on hover */
+
+}
+
+
+
+.header-menu2 a, .header-menu2 h1 {
+  padding: 10px 15px; /* Ensure consistent padding */
+  text-decoration: none; /* Remove underline from links */
+  font-weight: bold; 
+  font-family: Montserrat;
+  color: #333; /* Set text color */
+  font-size: larger;
+  
+}
+
+.header-menu2 a:hover {
+  color: #DAA276; /* Change color on hover */
+}
+
+
+.ChckoutTitle{
+  margin: 100px 600px;
+  margin-bottom: -80px;
+}
