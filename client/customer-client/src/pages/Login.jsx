@@ -71,7 +71,7 @@ const Login = () => {
             <div className="column">
                 <div className="form">
                     <div className = "formInside">
-                        <h1>Login :D</h1>
+                        <h1>Login</h1>
                         <form onSubmit={handleSubmit} >
                             <label >Email:</label><br></br>
                             <input type="email" htmlFor="email" required onChange={handleEmail} id="email" name="email"></input><br></br>

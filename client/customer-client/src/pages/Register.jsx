@@ -70,7 +70,7 @@ const Register = () => {
             <div className="column">
                 <div className="form">
                     <div className = "formInside">
-                        <h1>Register :D</h1>
+                        <h1>Register</h1>
                         <form onSubmit={handleSubmit} >
                             <label >Email:</label><br></br>
                             <input type="email" htmlFor="email" required onChange={handleEmail} id="email" name="email"></input><br></br>
