@@ -1,14 +1,15 @@
 import React from 'react'
-
-const HeaderBox = ({type= 'title', title, subtext, user}  ) => {
+import HackedEffectWord from './HackedEffectWord'
+const HeaderBox = ({type= 'title', title, subtext, firstName, lastName}  ) => {
   return (
     <div className="header-box">
         <h1 className="header-box-title">
         {title}
         {type === 'greeting' && (
-            <span style={{ color: 'rgb(94, 136, 225)' }}>
-                &nbsp;{user}
-            </span>
+            <span style={{ color: '#DAA276' }}>
+                &nbsp; 
+                <HackedEffectWord firstName={firstName} lastName={lastName} />
+                </span>
 
         )}
             </h1>

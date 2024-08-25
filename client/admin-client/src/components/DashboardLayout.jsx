@@ -10,9 +10,9 @@ const DashboardLayout = ({ children }) => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  const items1 = ['1', '2', '3'].map((key) => ({
+  const items1 = ['home', '2', '3'].map((key) => ({
     key,
-    label: `nav ${key}`,
+    label: ` ${key}`,
   }));
 
   const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
@@ -41,6 +41,7 @@ const DashboardLayout = ({ children }) => {
           defaultSelectedKeys={['2']}
           items={items1}
           style={{ flex: 1, minWidth: 0 }}
+          
         />
       </Header>
       <Layout>
@@ -61,15 +62,15 @@ const DashboardLayout = ({ children }) => {
           </Breadcrumb>
           <Content
             style={{
-              padding: 24,
+              padding: 30,
               margin: 0,
+              minWidth:60,
               minHeight: 280,
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
             }}
           >
-            {children}             {        
-            <TotalBalanceBox accounts={[]} totalBanks={1} totalBalance={1250.68}/>}
+            {children}     
           </Content>
         </Layout>
       </Layout>

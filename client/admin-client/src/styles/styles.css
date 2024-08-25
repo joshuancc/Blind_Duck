@@ -1,3 +1,119 @@
+.home{
+  min-width: 2000px;
+  display: flex; /* Enables side-by-side layout */
+  /*align-items: center;  Vertically centers items */
+  justify-content: space-between; /* Adds space between chart and details */
+  padding: 20px; /* Adds padding */
+  background-color: #fdfdfd; /* Light background */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.home-landing{
+  min-width: 200px;
+  display: flex; /* Enables side-by-side layout */
+  flex-direction: column;
+  /*align-items: center;  Vertically centers items */
+  justify-content: space-between; /* Adds space between chart and details */
+  padding: 20px; /* Adds padding */
+  background-color: #FDFDFF
+  ; /* Light background */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.header-menu {
+  padding-left: 100px;
+  gap: 200px; 
+  border-bottom: solid 1px #1e1f26; /* Adds a bottom border */
+  display: flex;
+  align-items: center; /* Vertically center the items */
+}
+
+.header-menu a, .header-menu h1 {
+  padding: 10px 15px; /* Ensure consistent padding */
+  text-decoration: none; /* Remove underline from links */
+  font-weight: bold; 
+  font-family: Montserrat;
+  color: #333; /* Set text color */
+}
+
+
+.header-menu a:hover {
+  color: #DAA276; /* Change color on hover */
+}
+
+.home-content{
+  display: flex; /* Enables side-by-side layout */
+  flex-direction: column;
+
+}
+.home-content-items{
+  background-color: #FDFDFF; /* Light background  #FDFDFF*/ 
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Evenly spaces out the cards */
+  padding: 20px; /* Optional: Adds padding around the section */
+}
+
+.end {
+  align-self: flex-end; /* Pushes the .end section to the bottom of the parent container */
+  margin-top: auto;
+}
+.Landing-Card{
+  justify-content: center;
+  font-family: Montserrat ;
+  background-color: #DAA276;
+  color:#FDFDFF;
+  border-radius: 10px;
+  min-height: 400px;
+  min-width: 300px ;
+  flex: 1; /* Allows the cards to grow and shrink evenly */
+  margin: 0 10px; /* Adds space between the cards */
+  position: relative; /* Needed for positioning the image */
+  padding: 20px; /* Adds some padding around the text */
+
+}
+
+.Chart-Card{justify-content: center;
+  font-family: Montserrat ;
+  background-color: #f3f3f3;
+  color:#FDFDFF;
+  border-radius: 10px;
+  min-height: 400px;
+  min-width: 300px ;
+  flex: 1; /* Allows the cards to grow and shrink evenly */
+  margin: 0 10px; /* Adds space between the cards */
+  position: relative; /* Needed for positioning the image */
+  padding: 20px;}
+
+.card-image {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 80px; /* Adjust size as needed */
+  height: auto;
+  border-radius: 50%; /* Makes the image circular */
+}
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;
+  margin-bottom: 20px; /* Adds space between the image and the text */
+}
+.nav,
+.slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background-color: #1e1f26;
+  text-align: center;
+  padding: 0 2em;
+}
+
 /* Container for the entire section */
 .total-balance {
   display: flex; /* Enables side-by-side layout */
@@ -12,7 +128,7 @@
 /* Chart container */
 .total-balance-chart {
   flex: 1; /* Take up one part of the available space */
-  max-width: 300px; /* Restrict maximum width */
+  max-width: 200px; /* Restrict maximum width */
   margin-right: 20px; /* Adds spacing between chart and details */
 }
 
@@ -38,7 +154,7 @@
 .total-balance-amount {
   font-size: 32px;
   font-weight: bold;
-  color: #0747b6;
+  color: #DAA276;
 }
 
 /* Optional: Add responsive design */
@@ -58,15 +174,13 @@
     width: 100%;
   }
 }
-
-/* side Bar*/
-.SideBar{
+ .line-chart{
+  background-color: #f3f3f3;
   display: flex;
-width: 300px;
-background-color: #2f4050;
-height: 100%;
-}
-
+  padding-left: 30px;
+  min-width: 853px;
+ }
+/* side Bar*/
 
 .flex-container {
   display: flex;
@@ -74,17 +188,7 @@ height: 100%;
   font-size: 30px;
   text-align: center;
 }
-.flex-item-left {
-  background-color: #f1f1f1;
-  padding: 10px;
-  flex: vertical ; 
-}
 
-.flex-item-right {
-  background-color: dodgerblue;
-  padding: 10px;
-  flex: 50%;
-}
 html, body {
   height: 100%;
   margin: 0;
@@ -93,4 +197,65 @@ html, body {
 main {
   display: flex;
   height: 100vh; /* Full viewport height */
+}
+.outer-headings {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+}
+
+h1 {
+  font-family: Montserrat;
+  margin-right: 20px; /* Space between "Unlock" and rotating text */
+}
+
+.inner-headings {
+  display: inline-block;
+  overflow: hidden;
+  height: 80px; /* Increased height */
+  line-height: 80px; /* Increased line height */
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.inner-headings span {
+  display: inline-block;
+  animation: slide 10s ease-in-out infinite;
+  color: #DAA276;
+  font-family: Montserrat;
+}
+
+.line {
+  display: block;
+  white-space: nowrap; /* Ensures that each line doesn't wrap */
+}
+
+
+@keyframes slide {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-80px); /* Matches the height of a single line */
+  }
+  45% {
+    transform: translateY(-80px);
+  }
+  50% {
+    transform: translateY(-160px);
+  }
+  70% {
+    transform: translateY(-160px);
+  }
+  75% {
+    transform: translateY(-240px);
+  }
+  95% {
+    transform: translateY(-240px);
+  }
 }
