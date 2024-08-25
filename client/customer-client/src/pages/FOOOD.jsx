@@ -1,10 +1,4 @@
-import riceTop from "../assets/riceTop.png"
-import coffeeTop from "../assets/coffeeTop.png"
-import saladTop from "../assets/saladTop.png"
-import noodlesTop from "../assets/noodlesTop.png"
-import teaTop from "../assets/teaTop.png"
 import back from "../assets/back.png"
-import fullHeart from "../assets/fullHeart.png"
 import emptyHeart from "../assets/emptyHeart.png"
 import Slide from '@mui/material/Slide';
 import axios from 'axios'
@@ -12,7 +6,6 @@ import React from "react"
 import MenuItem from  "../components/MenuItem";
 import { useState } from 'react';
 import { useEffect } from 'react';
-import SideBar from "../components/SideBar";
 import {useLocation} from 'react-router-dom';
 import {useNavigate} from "react-router-dom"
 
@@ -113,7 +106,6 @@ const FOOOD = () => {
     }
 
     const handleChangePopup = (name) => {
-        
         setPopupVisible((prev) => !prev);
        
         
@@ -195,7 +187,7 @@ const FOOOD = () => {
 
                 {menu.map((menuItem,index) =>(
                     <span key = {index}>
-                        <MenuItem desc={menuItem.name} spicy={true} image = {riceTop} handler = {handleChangePopup} price ={menuItem.price} setName = {setPopupName} setPrice = {setPopupPrice} setAmount={setAmount} amount = {quantMap.get(menuItem.name)} setImage = {setImage} description = {menuItem.description} setDesc={setDes} />
+                        <MenuItem desc={menuItem.name} spicy={true} handler = {handleChangePopup} price ={menuItem.price} setName = {setPopupName} setPrice = {setPopupPrice} setAmount={setAmount} amount = {quantMap.get(menuItem.name)} setImage = {setImage} description = {menuItem.description} setDesc={setDes} />
                     </span>
                 )) }
 
